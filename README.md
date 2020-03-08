@@ -1,2 +1,2 @@
-# homer-v2
-Homer
+# Homer : version 2.0
+
