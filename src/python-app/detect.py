@@ -1,6 +1,7 @@
-from utils import *
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
 from trainingSets import *
-from matplotlib import pyplot as plt
 
 
 orb = cv2.ORB_create()
@@ -11,9 +12,14 @@ maxVal = 8
 maxPoint = -1
 maxKP = 0
 
+# import os.path
 
+# if os.path.isfile('src/uploads/image.jpg'):
+#     print ("File exist")
+# else:
+#     print ("File not exist")
 
-testImage  = cv2.imread("uploads/image.jpg")
+testImage  = cv2.imread("src/uploads/image.jpg")
 
 
 # testImage = readImg('../test/files/test/test_20_1.jpg')
@@ -24,7 +30,6 @@ testImage  = cv2.imread("uploads/image.jpg")
 
 # display('original', original)
 bf = cv2.BFMatcher()
-
 
 (kp1, des1) = akaze.detectAndCompute(testImage, None)
 
@@ -57,7 +62,7 @@ if maxVal != 8:
     #       ' has total ' + 'good matches : ', maxVal)
     print()
     note_real = ''
-    note = str(notes_training_set[maxPoint])[17:-4]
+    note = str(notes_training_set[maxPoint])[21:-4]
     for i in note:
         if i == '/':
             break

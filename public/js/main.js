@@ -1,7 +1,7 @@
 console.log('Client side javascript file is loaded!')
 
 const imageForm = document.querySelector('form')
-const messageOne = document.querySelector('#location')
+const messageOne = document.querySelector('#result')
 
 detectAndCompute();
 
@@ -9,13 +9,17 @@ function detectAndCompute() {
 
     imageForm.addEventListener('submit', (e) => {
         e.preventDefault()
-
         fetch('/name').then((response) => {
             response.json().then((data) => {
                 if (data.error) {
                     messageOne.textContent = data.error
+
+                    console.log(data.error)
                 } else {
                     messageOne.textContent = data.notes
+                    console.log(data.notes)
+                    var msg = new SpeechSynthesisUtterance(data.notes);
+                    window.speechSynthesis.speak(msg);
                 }
             })
         })
