@@ -1,0 +1,27 @@
+{
+  "name": "homer",
+  "version": "2.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roeintheglasses/homer-v2.git"
+  },
+  "keywords": [
+    "homer"
+  ],
+  "author": "Hrishikesh Jangir",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/roeintheglasses/homer-v2/issues"
+  },
+  "homepage": "https://github.com/roeintheglasses/homer-v2#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "multer": "^1.4.2",
+    "request": "^2.88.2"
+  }
+}
