@@ -11,8 +11,9 @@
 </head>
 
 <body>
-    <h1>Homer</h1>
+    <h1>Homer<sup> [(Public Beta)]</sup></h1>
     <p id="result">Hello Humon!</p>
+    <audio src="startup.mp3"></audio>
 
     <form id="uploadForm" enctype="multipart/form-data" action="/api/photo" method="post">
         <input id="input" type="file" name="userPhoto" />
@@ -23,7 +24,7 @@
 </body>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
-<script>
+<!-- <script>
     $(document).ready(function () {
 
         $('#uploadForm').submit(function () {
@@ -44,7 +45,7 @@
             return false;
         });
     });
-</script>
+</script> -->
 <script src="/js/main.js"></script>
 
 </html>

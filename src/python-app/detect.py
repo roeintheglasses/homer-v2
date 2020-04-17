@@ -46,7 +46,7 @@ if maxVal != 8:
             break
         note_real = note_real + i
 
-    print('₹', note_real)
+    print(note_real, '₹')
 else:
     print('No Match Found')
 

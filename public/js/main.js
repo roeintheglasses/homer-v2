@@ -2,8 +2,65 @@ console.log('Client side javascript file is loaded!')
 
 const imageForm = document.querySelector('form')
 const messageOne = document.querySelector('#result')
+const startupAudio = document.querySelector('audio')
+
+var voiceFlag = false;
+
+
+// JQuery code for the file upload dialog
+$(document).ready(() => {
+
+    $('#uploadForm').submit(function () {
+        $("#status").empty().text("File is uploading...");
+        $(this).ajaxSubmit({
+
+            error: (xhr) => {
+                status('Error: ' + xhr.status);
+            },
+
+            success: (response) => {
+                $("#status").empty().text(response);
+                console.log(response);
+                voiceFlag = true;
+
+            }
+        });
+        //Very important line, it disables the page refresh.
+        return false;
+    });
+});
+
+
+window.onload = () => {
+    startupAudio.play();
+}
+
 
 detectAndCompute();
+
+
+// window.SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
+
+// if ('SpeechRecognition' in window && voiceFlag) {
+//     speech()
+// } else {
+//     // speech recognition API not supported
+// }
+
+// function speech() {
+//     const recognition = new window.SpeechRecognition();
+//     recognition.start();
+//     recognition.onresult = (event) => {
+//         const speechToText = event.results[0][0].transcript;
+//         console.log("User Said : " + speechToText);
+//         if (speechToText.includes("submit")) {
+//             console.log("yes");
+//             $("input").trigger("click");
+//         } else
+//             console.log("yes");
+//     }
+// }
+
 
 function detectAndCompute() {
 

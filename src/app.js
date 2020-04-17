@@ -37,7 +37,8 @@ app.post('/api/photo', function (req, res) {
 app.get('/detect', callDetect);
 
 function callDetect(req, res) {
-    console.log("Detect and compute service ran.")
+    var datetime = new Date();
+    console.log("Detect and compute service ran at : " + datetime);
     var spawn = require("child_process").spawn;
     var process = spawn('python3', ["src/python-app/detect.py"]);
     process.stdout.on('data', function (data) {
