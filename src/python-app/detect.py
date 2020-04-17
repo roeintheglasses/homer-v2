@@ -37,7 +37,6 @@ for i in range(0, len(notes_training_set)):
         maxKP = kp2
 
 if maxVal != 8:
-    print()
     note_real = ''
     note = str(notes_training_set[maxPoint])[21:-4]
     for i in note:
