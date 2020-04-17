@@ -32,6 +32,7 @@ $(document).ready(() => {
 
 
 window.onload = () => {
+    wait(1000);
     startupAudio.play();
 }
 
@@ -69,7 +70,7 @@ function detectAndCompute() {
         messageOne.textContent = "Loading...."
         var loading = new SpeechSynthesisUtterance("Loading, Please wait few seconds.");
         window.speechSynthesis.speak(loading);
-
+        wait(1000);
         fetch('/detect').then((response) => {
             response.json().then((data) => {
                 if (data.error) {
@@ -85,4 +86,12 @@ function detectAndCompute() {
             })
         })
     })
+}
+
+function wait(ms) {
+    var start = new Date().getTime();
+    var end = start;
+    while (end < start + ms) {
+        end = new Date().getTime();
+    }
 }
