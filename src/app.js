@@ -34,10 +34,10 @@ app.post('/api/photo', function (req, res) {
 
 
 
-app.get('/name', callDetect);
+app.get('/detect', callDetect);
 
 function callDetect(req, res) {
-    console.log("Detect and compute running!!")
+    console.log("Detect and compute service ran.")
     var spawn = require("child_process").spawn;
     var process = spawn('python3', ["src/python-app/detect.py"]);
     process.stdout.on('data', function (data) {
@@ -47,6 +47,7 @@ function callDetect(req, res) {
     })
 }
 
-app.listen(port, function () {
-    console.log("Working on port: " + port + "!!");
-});
+
+app.listen(port, () => {
+    console.log('server running at ' + port)
+})

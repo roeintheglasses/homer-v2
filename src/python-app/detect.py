@@ -12,25 +12,8 @@ maxVal = 8
 maxPoint = -1
 maxKP = 0
 
-# import os.path
-
-# if os.path.isfile('src/uploads/image.jpg'):
-#     print ("File exist")
-# else:
-#     print ("File not exist")
-
 testImage  = cv2.imread("src/uploads/image.jpg")
-
-
-# testImage = readImg('../test/files/test/test_20_1.jpg')
-# print("Read image file from the given location.")
-
-# resizing must be dynamic
-# original = resizeImg(testImage, 0.4)
-
-# display('original', original)
 bf = cv2.BFMatcher()
-
 (kp1, des1) = akaze.detectAndCompute(testImage, None)
 
 for i in range(0, len(notes_training_set)):
@@ -54,12 +37,7 @@ for i in range(0, len(notes_training_set)):
         maxPoint = i
         maxKP = kp2
 
-    # print(i, ' ', notes_training_set[i], '--->', len(good))
-
-
 if maxVal != 8:
-    # print(notes_training_set[maxPoint] +
-    #       ' has total ' + 'good matches : ', maxVal)
     print()
     note_real = ''
     note = str(notes_training_set[maxPoint])[21:-4]
@@ -68,8 +46,7 @@ if maxVal != 8:
             break
         note_real = note_real + i
 
-    print('Detected currency denomination: ₹', note_real)
-
+    print('₹', note_real)
 else:
-    print('No Matches Found')
+    print('No Match Found')
 

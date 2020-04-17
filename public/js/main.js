@@ -9,7 +9,11 @@ function detectAndCompute() {
 
     imageForm.addEventListener('submit', (e) => {
         e.preventDefault()
-        fetch('/name').then((response) => {
+        messageOne.textContent = "Loading...."
+        var loading = new SpeechSynthesisUtterance("Loading, Please wait few seconds.");
+        window.speechSynthesis.speak(loading);
+
+        fetch('/detect').then((response) => {
             response.json().then((data) => {
                 if (data.error) {
                     messageOne.textContent = data.error
