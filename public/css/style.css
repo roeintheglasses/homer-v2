@@ -40,11 +40,8 @@ p {
 }
 
 form {
-    /* position: relative; */
-    /* top: 50%;
-    left: 50%; */
+    position: relative;
     margin-top: -92vh;
-
     width: 99vw;
     height: 50vh;
     border: 4px dashed #fff;
