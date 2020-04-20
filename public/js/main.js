@@ -32,7 +32,7 @@ $(document).ready(() => {
 
 
 window.onload = () => {
-    wait(1500);
+    wait(1000);
     startupAudio.play();
 }
 
