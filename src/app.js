@@ -47,6 +47,19 @@ function callDetect(req, res) {
         });
     })
 }
+app.get('/detect-debug', callDetect);
+
+function callDetectDebug(req, res) {
+    var datetime = new Date();
+    console.log("Detect and compute service ran at : " + datetime);
+    var spawn = require("child_process").spawn;
+    var process = spawn('python3', ["src/python-app/detect-debug.py"]);
+    process.stdout.on('data', function (data) {
+        res.send({
+            notes: data.toString()
+        });
+    })
+}
 
 
 app.listen(port, () => {

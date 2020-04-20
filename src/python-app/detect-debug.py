@@ -7,7 +7,7 @@ orb = cv2.ORB_create()
 akaze = cv2.AKAZE_create()
 
 
-maxVal = 50
+maxVal = 75
 maxPoint = -1
 maxKP = 0
 
@@ -39,7 +39,7 @@ for i in range(0, len(notes_training_set)):
     print(i, ' ', notes_training_set[i], '--->', len(good))
 
 
-if maxVal != 50:
+if maxVal != 75:
     print(notes_training_set[maxPoint] +
           ' has total ' + 'good matches : ', maxVal)
     print()
