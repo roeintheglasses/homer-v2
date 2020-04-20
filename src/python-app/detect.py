@@ -7,7 +7,7 @@ orb = cv2.ORB_create()
 akaze = cv2.AKAZE_create()
 
 
-maxVal = 8
+maxVal = 75
 maxPoint = -1
 maxKP = 0
 
@@ -36,7 +36,7 @@ for i in range(0, len(notes_training_set)):
         maxPoint = i
         maxKP = kp2
 
-if maxVal != 8:
+if maxVal != 75:
     note_real = ''
     note = str(notes_training_set[maxPoint])[21:-4]
     for i in note:
@@ -46,5 +46,5 @@ if maxVal != 8:
 
     print(note_real, '₹')
 else:
-    print('No Match Found')
+    print('No Match Found, Please try again.')
 
