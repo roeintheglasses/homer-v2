@@ -1,11 +1,10 @@
 {
   "name": "homer",
-  "version": "2.0.0",
-  "description": "",
+  "version": "2.1.0",
+  "description": "Currency-Detection made easy.",
   "main": "index.js",
   "scripts": {
-    "start": "pip3 install -r requirements.txt && node src/app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/app.js"
   },
   "repository": {
     "type": "git",
@@ -21,8 +20,8 @@
   },
   "homepage": "https://github.com/roeintheglasses/homer-v2#readme",
   "dependencies": {
+    "browser-image-compression": "^1.0.9",
     "express": "^4.17.1",
-    "multer": "^1.4.2",
-    "request": "^2.88.2"
+    "multer": "^1.4.2"
   }
 }

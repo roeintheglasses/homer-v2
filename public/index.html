@@ -8,22 +8,38 @@
     <meta property=og:description content="Currency-Detection made easy.">
     <title>Homer</title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
 </head>
 
 <body>
-    <h1>Homer<sup> [(Public Beta)]</sup></h1>
-    <p id="result">Hello Humon!</p>
+    <h1 data-shadow='homer!'>homer!</h1>
+
+    <p class="message1" id="result">Hello Humon!</p>
+    <p class="message2" id="status"></p>
+    <div class="container">
+        <div class="progress progress-infinite">
+            <div class="progress-bar3">
+            </div>
+        </div>
+    </div>
     <audio src="startup.mp3"></audio>
-
-    <form id="uploadForm" enctype="multipart/form-data" action="/api/photo" method="post">
-        <input id="input" type="file" name="userPhoto" />
-        <pre id="status"></pre>
-        <input id="button" type="submit" value="Upload Image" name="submit">
+    <form>
+        <input id="input" type="file" accept="image/*" capture="environment" />
     </form>
-
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=3laz7ckT"></script>
 </body>
+<div class="footer">
+    <p>Created with ❤️ by <a href="https://www.github.com/roeintheglasses">Hrishi Jangir</a></p>
+</div>
+
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
 <script src="/js/main.js"></script>
+<script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/browser-image-compression@latest/dist/browser-image-compression.js"></script>
+
 
 </html>

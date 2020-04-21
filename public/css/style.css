@@ -1,64 +1,96 @@
-body {
-    background: rgba(0, 0, 0, 0.9);
-    color: white;
-    overflow: -moz-scrollbars-none;
-}
+@import url(https://fonts.googleapis.com/css?family=Righteous);
+
 
 body::-webkit-scrollbar {
     width: 0 !important
 }
 
-h1 {
-    position: relative;
-    color: rgb(246, 255, 126);
-    font-family: 'Helvetica Neue', sans-serif;
-    font-size: 8vw;
-    font-weight: bold;
-    text-align: center;
-    margin-left: 3%;
-    margin-right: 3%;
+*,
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-sup {
-    font-size: 2vw;
+
+body {
+    text-align: center;
+    background-color: #191f25;
+    overflow: -moz-scrollbars-none;
+    color: white;
+}
+
+h1 {
+    display: inline-block;
+    font-family: 'Righteous', serif;
+    font-size: 12em;
+    text-shadow: .03em .03em 0 #2c3e50;
+    position: relative;
+    font-size: 20vmin;
+    font-weight: bold;
+}
+
+h1:after {
+    content: attr(data-shadow);
+    position: absolute;
+    top: .06em;
+    left: .06em;
+    z-index: -1;
+    text-shadow: none;
+    background-image:
+        linear-gradient(45deg,
+            transparent 45%,
+            hsla(48, 20%, 90%, 1) 45%,
+            hsla(48, 20%, 90%, 1) 55%,
+            transparent 0);
+    background-size: .05em .05em;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    animation: shad-anim 15s linear infinite;
+}
+
+@keyframes shad-anim {
+    0% {
+        background-position: 0 0
+    }
+
+    0% {
+        background-position: 100% -100%
+    }
 }
 
 audio {
     display: none;
 }
 
-
-p {
-    position: relative;
-    font-size: 2vw;
-    width: 100%;
-    height: 100%;
+.message1 {
+    font-size: 6vmin;
     text-align: center;
-    line-height: auto;
-    font-family: Arial;
-    margin-top: -5vw;
+    font-family: 'Righteous', serif;
+    margin-top: 15vh;
+    margin-bottom: 3vh;
+
+}
+
+.message2 {
+    /* position: relative; */
+    font-size: 5vmin;
+    text-align: center;
+    line-height: 10px;
+    font-family: 'Righteous', serif;
 }
 
 form {
-    position: relative;
-    margin-top: -92vh;
-    width: 99vw;
-    height: 50vh;
-    border: 4px dashed #fff;
+    width: 100vw;
+    height: 80vh;
+    border: none;
+    margin-top: -35vh;
 }
-
-pre {
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    line-height: 270px;
-    font-family: Arial;
-}
-
-
 
 #input {
-    position: absolute;
     margin: 0;
     padding: 0;
     width: 100%;
@@ -67,74 +99,75 @@ pre {
     opacity: 0;
 }
 
-#button {
-    margin: 0;
-    color: #fff;
-    background: #16a085;
-    border: none;
-    width: 99vw;
-    height: 140px;
-    margin-top: -10px;
-    border-radius: 8px;
-    border-bottom: 4px solid #117A60;
-    transition: all .2s ease;
-    outline: none;
+.container {
+    margin: 100px auto;
+    width: 70vmin;
+    text-align: center;
+    opacity: 0;
 }
 
-#button:hover {
-    background: #5cf17c;
-    color: rgb(5, 59, 47);
+.progress {
+    padding: 6px;
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
 }
 
-#button:active {
-    border: 0;
+.progress-bar3 {
+    height: 18px;
+    border-radius: 4px;
+    background-image: linear-gradient(to right, #4cd964, #5ac8fa, #007aff, #7DC8E8, #5856d6, #ff2d55);
+    transition: 0.4s linear;
+    transition-property: width, background-color;
 }
 
+.progress-infinite .progress-bar3 {
+    width: 100%;
+    background-image: linear-gradient(to right, #4cd964, #5ac8fa, #007aff, #7DC8E8, #5856d6, #ff2d55);
+    animation: colorAnimation 1s infinite;
+}
 
+@keyframes colorAnimation {
+    0% {
+        background-image: linear-gradient(to right, #4cd964, #5ac8fa, #007aff, #7DC8E8, #5856d6, #ff2d55);
+    }
 
-@media (max-width:1500px) {
-    form {
-        width: 98vw;
+    20% {
+        background-image: linear-gradient(to right, #5ac8fa, #007aff, #7DC8E8, #5856d6, #ff2d55, #4cd964);
+    }
 
+    40% {
+        background-image: linear-gradient(to right, #007aff, #7DC8E8, #5856d6, #ff2d55, #4cd964, #5ac8fa);
+    }
+
+    60% {
+        background-image: linear-gradient(to right, #7DC8E8, #5856d6, #ff2d55, #4cd964, #5ac8fa, #007aff);
+    }
+
+    100% {
+        background-image: linear-gradient(to right, #5856d6, #ff2d55, #4cd964, #5ac8fa, #007aff, #7DC8E8);
     }
 }
 
-@media (max-width:1000px) {
-    form {
-        width: 97vw;
-
-    }
+a {
+    color: rgb(255, 244, 95);
+    text-decoration: none;
 }
 
-@media (max-width:700px) {
-    form {
-        width: 96vw;
-
-    }
+a:hover {
+    color: rgb(0, 183, 255);
 }
 
-@media (max-width:500px) {
-    form {
-        width: 93vw;
-        margin-left: 1vw;
 
-    }
-
-    #button {
-        width: 93vw;
-    }
-}
-
-@media (max-width:300px) {
-    form {
-        width: 91vw;
-
-    }
-}
-
-@media (max-width:200px) {
-    form {
-        width: 87vw;
-
-    }
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding-top: 10;
+    padding-bottom: 10;
+    font-family: 'Righteous';
+    background-color: #15181b;
+    color: white;
+    text-align: center;
 }

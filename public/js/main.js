@@ -1,53 +1,80 @@
 console.log('Client side javascript file is loaded!')
 
-const imageForm = document.querySelector('form')
 const messageOne = document.querySelector('#result')
-const startupAudio = document.querySelector('audio')
+const messageTwo = document.querySelector('#status')
+const imageInput = document.querySelector('#input')
+const loadBar = document.querySelector('.container');
 
-var uploadFlag = false;
+imageInput.addEventListener('change', (e) => {
+    e.preventDefault()
+    handleImageUpload(e);
 
-
-// JQuery code for the file upload dialog
-$(document).ready(() => {
-
-    $('#uploadForm').submit(function () {
-        $("#status").empty().text("File is uploading...");
-        $(this).ajaxSubmit({
-
-            error: (xhr) => {
-                status('Error: ' + xhr.status);
-            },
-
-            success: (response) => {
-                $("#status").empty().text(response);
-                console.log(response);
-                detectAndCompute();
-
-            }
-        });
-        //Very important line, it disables the page refresh.
-        return false;
-    });
-});
-
+})
 
 window.onload = () => {
     wait(1000);
     startupAudio.play();
 }
 
+function handleImageUpload(event) {
+
+    var imageFile = event.target.files[0];
+    console.log('originalFile instanceof Blob', imageFile instanceof Blob); // true
+    console.log(`originalFile size ${imageFile.size / 1024 / 1024} MB`);
+
+    var options = {
+        maxSizeMB: 1,
+        maxWidthOrHeight: 1920,
+        useWebWorker: true
+    }
+    imageCompression(imageFile, options)
+        .then(function (compressedFile) {
+            console.log('compressedFile instanceof Blob', compressedFile instanceof Blob); // true
+            console.log(
+                `compressedFile size ${compressedFile.size / 1024 / 1024} MB`); // smaller than maxSizeMB
+
+            return uploadToServer(compressedFile); // write your own logic
+        })
+        .catch(function (error) {
+            console.log(error.message);
+        });
+}
+
+function uploadToServer(file) {
+    var fd = new FormData();
+    fd.append('fname', 'image.jpg');
+    fd.append('data', file);
+    $.ajax({
+        type: 'POST',
+        url: '/api/photo',
+        data: fd,
+        processData: false,
+        contentType: false
+    }).done(function (data) {
+        detectAndCompute();
+        messageTwo.textContent = data.toString();
+        console.log(data);
+    });
+}
+
 function detectAndCompute() {
-    messageOne.textContent = "Loading...."
+    messageOne.textContent = " "
+    loadBar.style.opacity = 100
     var loading = new SpeechSynthesisUtterance("Loading, Please wait few seconds.");
     window.speechSynthesis.speak(loading);
     fetch('/detect').then((response) => {
         response.json().then((data) => {
             if (data.error) {
+                loadBar.style.opacity = 0
                 messageOne.textContent = data.error
-
+                messageTwo.textContent = " "
+                var msg = new SpeechSynthesisUtterance(data.error);
+                window.speechSynthesis.speak(msg);
                 console.log(data.error)
             } else {
+                loadBar.style.opacity = 0
                 messageOne.textContent = data.notes
+                messageTwo.textContent = " "
                 console.log(data.notes)
                 var msg = new SpeechSynthesisUtterance(data.notes);
                 window.speechSynthesis.speak(msg);

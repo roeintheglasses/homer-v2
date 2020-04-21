@@ -18,7 +18,7 @@ var storage = multer.diskStorage({
 
 var upload = multer({
     storage: storage
-}).single('userPhoto');
+}).any()
 
 app.use(express.static(publicDirectoryPath))
 
@@ -31,7 +31,6 @@ app.post('/api/photo', function (req, res) {
         res.end("File is uploaded");
     });
 });
-
 
 
 app.get('/detect', callDetect);
@@ -47,7 +46,7 @@ function callDetect(req, res) {
         });
     })
 }
-app.get('/detect-debug', callDetect);
+app.get('/detect-debug', callDetectDebug);
 
 function callDetectDebug(req, res) {
     var datetime = new Date();

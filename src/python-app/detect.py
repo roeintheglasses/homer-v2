@@ -46,5 +46,5 @@ if maxVal != 75:
 
     print(note_real, '₹')
 else:
-    print('No Match Found, Please try again.')
+    print('No Match Found.')
 
