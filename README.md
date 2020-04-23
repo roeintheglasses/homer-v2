@@ -1,6 +1,7 @@
 # Homer-V2
 
 
+
 Homer is an OpenCV based Application that aims to use computer vision and machine learning to provide Currency-Detection for visually impaired people.
 
 ## Getting Started  
@@ -9,7 +10,6 @@ Clone repo using
 
 ```
 git clone https://github.com/roeintheglasses/homer-v2.git
-
 ```
 
 #### Make sure you have NodeJS and Python3 installed. You can check the python3 runtime in the runtime.txt file within the repo directory.
