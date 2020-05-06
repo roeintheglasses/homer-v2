@@ -1,17 +1,196 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
-    <meta http-equiv=X-UA-Compatible content="IE=edge">
     <meta name=description content="Currency-Detection made easy.">
     <meta property=og:description content="Currency-Detection made easy.">
     <title>Homer</title>
-    <link rel="stylesheet" href="/css/style.css">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Righteous&display=swap" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Righteous&display=swap"></noscript>
+
+    <style>
+        body::-webkit-scrollbar {
+            width: 0 !important
+        }
+
+        *,
+        *:before,
+        *:after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            text-align: center;
+            background-color: #191f25;
+            overflow: -moz-scrollbars-none;
+        }
+
+        h1 {
+            display: inline-block;
+            font-family: 'Righteous', serif;
+            font-size: 12em;
+            text-shadow: .03em .03em 0 #2c3e50;
+            position: relative;
+            font-size: 20vmin;
+            font-weight: bold;
+            color: white;
+
+        }
+
+        h1:after {
+            content: attr(data-shadow);
+            position: absolute;
+            top: .06em;
+            left: .06em;
+            z-index: -1;
+            text-shadow: none;
+            background-image:
+                linear-gradient(45deg,
+                    transparent 45%,
+                    hsla(48, 20%, 90%, 1) 45%,
+                    hsla(48, 20%, 90%, 1) 55%,
+                    transparent 0);
+            background-size: .05em .05em;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+
+            animation: shad-anim 15s linear infinite;
+        }
+
+        @keyframes shad-anim {
+            0% {
+                background-position: 0 0
+            }
+
+            0% {
+                background-position: 100% -100%
+            }
+        }
+
+        .message1 {
+            font-size: 6vmin;
+            text-align: center;
+            font-family: 'Righteous', serif;
+            margin-top: 15vh;
+            margin-bottom: 3vh;
+            color: white;
+
+
+        }
+
+        .message2 {
+            /* position: relative; */
+            font-size: 5vmin;
+            text-align: center;
+            line-height: 10px;
+            font-family: 'Righteous', serif;
+            color: white;
+
+        }
+
+        form {
+            width: 100vw;
+            height: 80vh;
+            border: none;
+            margin-top: -35vh;
+        }
+
+        #input {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            outline: none;
+            opacity: 0;
+        }
+
+        .container {
+            margin: 100px auto;
+            width: 70vmin;
+            text-align: center;
+            opacity: 0;
+        }
+
+        .progress {
+            padding: 6px;
+            background: rgba(0, 0, 0, 0.25);
+            border-radius: 6px;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
+        }
+
+        .progress-bar3 {
+            height: 18px;
+            border-radius: 4px;
+            background-image: linear-gradient(to right, #4cd964, #5ac8fa, #007aff, #7DC8E8, #5856d6, #ff2d55);
+            transition: 0.4s linear;
+            transition-property: width, background-color;
+        }
+
+        .progress-infinite .progress-bar3 {
+            width: 100%;
+            background-image: linear-gradient(to right, #4cd964, #5ac8fa, #007aff, #7DC8E8, #5856d6, #ff2d55);
+            animation: colorAnimation 1s infinite;
+        }
+
+        @keyframes colorAnimation {
+            0% {
+                background-image: linear-gradient(to right, #4cd964, #5ac8fa, #007aff, #7DC8E8, #5856d6, #ff2d55);
+            }
+
+            20% {
+                background-image: linear-gradient(to right, #5ac8fa, #007aff, #7DC8E8, #5856d6, #ff2d55, #4cd964);
+            }
+
+            40% {
+                background-image: linear-gradient(to right, #007aff, #7DC8E8, #5856d6, #ff2d55, #4cd964, #5ac8fa);
+            }
+
+            60% {
+                background-image: linear-gradient(to right, #7DC8E8, #5856d6, #ff2d55, #4cd964, #5ac8fa, #007aff);
+            }
+
+            100% {
+                background-image: linear-gradient(to right, #5856d6, #ff2d55, #4cd964, #5ac8fa, #007aff, #7DC8E8);
+            }
+        }
+
+        a {
+            color: rgb(255, 244, 95);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: rgb(0, 183, 255);
+        }
+
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            padding-top: 10;
+            padding-bottom: 10;
+            font-family: 'Righteous';
+            background-color: #15181b;
+            color: white;
+            text-align: center;
+        }
+
+        .sr-only {
+            color: #191f25
+        }
+    </style>
 </head>
 
 <body>
@@ -25,21 +204,18 @@
             </div>
         </div>
     </div>
-    <audio src="startup.mp3"></audio>
     <form>
         <input id="input" type="file" accept="image/*" capture="environment" />
+        <label for="input" class="sr-only">Image Input</label>
     </form>
     <script src="https://code.responsivevoice.org/responsivevoice.js?key=3laz7ckT"></script>
 </body>
 <div class="footer">
-    <p>Created with ❤️ by <a href="https://www.github.com/roeintheglasses">Hrishi Jangir</a></p>
+    <p>Created with ❤️ by <br> <a href="https://www.github.com/roeintheglasses">Hrishi Jangir </a></p>
 </div>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="/js/main.js"></script>
-<script type="text/javascript"
-    src="https://cdn.jsdelivr.net/npm/browser-image-compression@latest/dist/browser-image-compression.js"></script>
-
+<script type="text/javascript" src="/image-compression/browser-image-compression.js"></script>
 
 </html>

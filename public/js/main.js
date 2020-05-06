@@ -4,6 +4,7 @@ const messageOne = document.querySelector('#result')
 const messageTwo = document.querySelector('#status')
 const imageInput = document.querySelector('#input')
 const loadBar = document.querySelector('.container');
+// const startupAudio = document.querySelector('audio');
 
 imageInput.addEventListener('change', (e) => {
     e.preventDefault()
@@ -11,10 +12,10 @@ imageInput.addEventListener('change', (e) => {
 
 })
 
-window.onload = () => {
-    wait(1000);
-    startupAudio.play();
-}
+// window.onload = () => {
+//     wait(1500);
+//     startupAudio.play();
+// }
 
 function handleImageUpload(event) {
 
