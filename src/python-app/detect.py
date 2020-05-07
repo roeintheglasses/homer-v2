@@ -15,19 +15,19 @@ testImage  = cv2.imread("src/uploads/image.jpg")
 bf = cv2.BFMatcher()
 (kp1, des1) = akaze.detectAndCompute(testImage, None)
 
-for i in range(0, len(notes_training_set)):
+for i in range(0, len(notesTrainingSet)):
     # train image
-    train_img = cv2.imread(notes_training_set[i])
+    trainingImage = cv2.imread(notesTrainingSet[i])
 
-    (kp2, des2) = akaze.detectAndCompute(train_img, None)
+    (kp2, des2) = akaze.detectAndCompute(trainingImage, None)
 
     # brute force matcher
-    all_matches = bf.knnMatch(des1, des2, k=2)
+    allMatches = bf.knnMatch(des1, des2, k=2)
 
     good = []
     # give an arbitrary number -> 0.789,0.792
     # if good -> append to list of good matches
-    for (m, n) in all_matches:
+    for (m, n) in allMatches:
         if m.distance < 0.792 * n.distance:
             good.append([m])
 
@@ -37,14 +37,14 @@ for i in range(0, len(notes_training_set)):
         maxKP = kp2
 
 if maxVal != 75:
-    note_real = ''
-    note = str(notes_training_set[maxPoint])[21:-4]
+    noteResult = ''
+    note = str(notesTrainingSet[maxPoint])[21:-4]
     for i in note:
         if i == '/':
             break
-        note_real = note_real + i
+        noteResult = noteResult + i
 
-    print(note_real, '₹')
+    print(noteResult, '₹')
 else:
     print('No Match Found.')
 
