@@ -11,8 +11,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
-    <link rel="preload" href="https://fonts.googleapis.com/css?family=Righteous&display=swap" as="style"
-        onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Righteous&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Righteous&display=swap"></noscript>
 
@@ -20,7 +19,7 @@
         body::-webkit-scrollbar {
             width: 0 !important
         }
-
+        
         *,
         *:before,
         *:after {
@@ -28,13 +27,13 @@
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
             text-align: center;
             background-color: #191f25;
             overflow: -moz-scrollbars-none;
         }
-
+        
         h1 {
             display: inline-block;
             font-family: 'Righteous', serif;
@@ -44,9 +43,8 @@
             font-size: 20vmin;
             font-weight: bold;
             color: white;
-
         }
-
+        
         h1:after {
             content: attr(data-shadow);
             position: absolute;
@@ -54,30 +52,23 @@
             left: .06em;
             z-index: -1;
             text-shadow: none;
-            background-image:
-                linear-gradient(45deg,
-                    transparent 45%,
-                    hsla(48, 20%, 90%, 1) 45%,
-                    hsla(48, 20%, 90%, 1) 55%,
-                    transparent 0);
+            background-image: linear-gradient(45deg, transparent 45%, hsla(48, 20%, 90%, 1) 45%, hsla(48, 20%, 90%, 1) 55%, transparent 0);
             background-size: .05em .05em;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-
             animation: shad-anim 15s linear infinite;
         }
-
+        
         @keyframes shad-anim {
             0% {
                 background-position: 0 0
             }
-
             0% {
                 background-position: 100% -100%
             }
         }
-
+        
         .message1 {
             font-size: 6vmin;
             text-align: center;
@@ -85,10 +76,8 @@
             margin-top: 15vh;
             margin-bottom: 3vh;
             color: white;
-
-
         }
-
+        
         .message2 {
             /* position: relative; */
             font-size: 5vmin;
@@ -96,16 +85,15 @@
             line-height: 10px;
             font-family: 'Righteous', serif;
             color: white;
-
         }
-
+        
         form {
             width: 100vw;
             height: 80vh;
             border: none;
             margin-top: -35vh;
         }
-
+        
         #input {
             margin: 0;
             padding: 0;
@@ -114,21 +102,21 @@
             outline: none;
             opacity: 0;
         }
-
+        
         .container {
             margin: 100px auto;
             width: 70vmin;
             text-align: center;
             opacity: 0;
         }
-
+        
         .progress {
             padding: 6px;
             background: rgba(0, 0, 0, 0.25);
             border-radius: 6px;
             box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
         }
-
+        
         .progress-bar3 {
             height: 18px;
             border-radius: 4px;
@@ -136,44 +124,40 @@
             transition: 0.4s linear;
             transition-property: width, background-color;
         }
-
+        
         .progress-infinite .progress-bar3 {
             width: 100%;
             background-image: linear-gradient(to right, #4cd964, #5ac8fa, #007aff, #7DC8E8, #5856d6, #ff2d55);
             animation: colorAnimation 1s infinite;
         }
-
+        
         @keyframes colorAnimation {
             0% {
                 background-image: linear-gradient(to right, #4cd964, #5ac8fa, #007aff, #7DC8E8, #5856d6, #ff2d55);
             }
-
             20% {
                 background-image: linear-gradient(to right, #5ac8fa, #007aff, #7DC8E8, #5856d6, #ff2d55, #4cd964);
             }
-
             40% {
                 background-image: linear-gradient(to right, #007aff, #7DC8E8, #5856d6, #ff2d55, #4cd964, #5ac8fa);
             }
-
             60% {
                 background-image: linear-gradient(to right, #7DC8E8, #5856d6, #ff2d55, #4cd964, #5ac8fa, #007aff);
             }
-
             100% {
                 background-image: linear-gradient(to right, #5856d6, #ff2d55, #4cd964, #5ac8fa, #007aff, #7DC8E8);
             }
         }
-
+        
         a {
             color: rgb(255, 244, 95);
             text-decoration: none;
         }
-
+        
         a:hover {
             color: rgb(0, 183, 255);
         }
-
+        
         .footer {
             position: fixed;
             left: 0;
@@ -186,7 +170,7 @@
             color: white;
             text-align: center;
         }
-
+        
         .sr-only {
             color: #191f25
         }
