@@ -62,5 +62,6 @@ localhost:3000/detect-debug
 ## Author :
 
 *  **Hrishi Jangir** - *Other Works* - [Github](https://github.com/roeintheglasses)
+*  **Nikunj Raghav** - *Other Works* - [Github](https://github.com/ProfessorBunny)
 
 ### [License: MIT](LICENSE.md)  
