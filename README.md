@@ -28,7 +28,7 @@ npm install
 within the repo directory
 
 ```
-pip3 install -r requirments.txt
+pip3 install -r requirements.txt
 ```
 
 ### Run app
