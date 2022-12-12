@@ -21,7 +21,7 @@
   "homepage": "https://github.com/roeintheglasses/homer-v2#readme",
   "dependencies": {
     "browser-image-compression": "^1.0.9",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "multer": "^1.4.2"
   }
 }
